@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/public/layui/css/layui.css">
+    <style>
+        #login-container{
+            width:1000px;
+            height: 600px;
+            margin: 0 auto;
+        }
+        header{
+            text-align: center;
+            font-size: 40px;
+            font-weight: 400;
+            line-height: 200px;
+        }
+        main{
+            width: 600px;
+            height: auto;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id="login-container">
+    <header>
+        登录头部
+    </header>
+    <main>
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码</label>
+                <div class="layui-input-inline">
+                    <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">（大小写，符号等）至少包含两种</div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formLogin">登录</button>
+                    <!--<button type="reset" class="layui-btn layui-btn-primary">重置</button>-->
+                </div>
+            </div>
+        </form>
+    </main>
+    <footer>
+
+    </footer>
+</div>
+<script src="/public/layui/layui.js"></script>
+
+<script>
+    //Demo
+    layui.use('form', function(){
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(formLogin)', function(data){
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
+    });
+</script>
+
+
+</body>
+</html>
